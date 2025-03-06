@@ -31,4 +31,34 @@
     </div>
 </section> -->
 
-<p>Chat Works</p>
+
+<section class="chat-container">
+    <section class="user-list-sec">
+        <div class="chat-sec">
+            <div class="chat-text">Chat</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="user-block">
+            @for (item of USER; track $index) {
+            <div class="user" (click)="onClickUser($index)" [ngClass]="{user_active: $index === selectedUser}">
+                <div class="profile-photo">
+                    <img src="../../../assets/user-regular.svg" width="20px">
+                </div>
+                <div class="user-sction">
+                    <div class="user-name">{{item.name}}</div>
+                    <div class="last-msg">{{item.lastMsg}}</div>
+                </div>
+
+            </div>
+            }
+        </div>
+    </section>
+    <section class="user-chat-sec">
+        <div class="user-sec">
+            <div class="user-text">Chat</div>
+            <div class="line"></div>
+            <div class="hr-line"></div>
+        </div>
+    </section>
+</section>

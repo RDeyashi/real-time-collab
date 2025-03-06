@@ -1,106 +1,126 @@
-.chat-container{
+.chat-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 100vw;
+    width: calc(100vw - 55px);
     height: 90vh;
+    max-width: 2160px;
 }
 
-.user-list-sec{
+.user-list-sec {
     width: 20%;
-    max-height: 90vh;
-    //background: black;
-    overflow-y: auto;
-}
-
-.user-chat-sec{
-    width: 80%;
-    background: blue;
-}
-
-.user-list {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    // height: 89vh;
-    // max-height: 90vh;
+    overflow-y: auto;
     background: rgba(199, 197, 197, 0.548);
-    gap: 2px;
-}
 
-.chat-sec {
-    margin-bottom: 40px;
-    position: fixed;
-    z-index: 10000;
-    background: rgb(221, 221, 221);
-    width: inherit;
-    height: 65px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
+    .chat-sec {
+        margin-bottom: 40px;
+        position: fixed;
+        z-index: 10000;
+        background: rgb(221, 221, 221);
+        width: inherit;
+        height: 65px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
 
-.chat-text {
-    margin-left: 25px;
-    font-weight: 500;
-}
+    .chat-text {
+        margin-left: 25px;
+        font-weight: 500;
+    }
 
-.line {
-    position: absolute;
-    height: 1px;
-    width: inherit;
-    background: rgb(187, 187, 187);
-    top: 65px;
-}
+    .line {
+        position: absolute;
+        height: 1px;
+        width: -webkit-fill-available;
+        background: rgb(187, 187, 187);
+        top: 65px;
+    }
 
-.user-block {
-    position: absolute;
-    top: 67px;
-    width: -webkit-fill-available;
-}
+    .user-block {
+        position: absolute;
+        top: 67px;
+        width: -webkit-fill-available;
+    }
 
-.user {
-    display: flex;
-    flex-direction: row;
+    .user {
+        display: flex;
+        flex-direction: row;
 
-    &:hover {
+        &:hover {
+            background: white;
+        }
+    }
+
+    .user_active {
         background: white;
+    }
+
+    .profile-photo {
+        background: rgb(255, 230, 230);
+        padding: 10px;
+        border-radius: 680px;
+        margin: 10px;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user-sction {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .user-name {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .last-msg {
+        font-size: 12px;
+        font-weight: 400;
     }
 }
 
-.user_active {
-    background: white;
+.user-chat-sec {
+    width: 80%;
+    // /background: rgb(179, 179, 179);
+
+    .user-sec {
+        position: relative;
+        background: rgb(221, 221, 221);
+        margin-bottom: 40px;
+        position: fixed;
+        z-index: 10000;
+        //background: rgb(221, 221, 221);
+        width: 80%;
+        height: 65px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .line {
+        position: absolute;
+        height: 1px;
+        width: -webkit-fill-available;
+        background: rgb(187, 187, 187);
+        top: 65px;
+    }
+
+    .hr-line{
+        position: absolute;
+        height: 65px;
+        width: 1px;
+        background: rgb(187, 187, 187);
+    }
 }
 
-.profile-photo {
-    background: rgb(255, 230, 230);
-    padding: 10px;
-    border-radius: 680px;
-    margin: 10px;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.user-sction {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
-
-.user-name {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.last-msg {
-    font-size: 12px;
-    font-weight: 400;
-}
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -115,21 +135,3 @@
     background: #888;
     border-radius: 10px;
 }
-
-// .user-sec {
-//     background: red;
-//     margin-bottom: 40px;
-//     position: fixed;
-//     z-index: 10000;
-//     //background: rgb(221, 221, 221);
-//     width: 80%;
-//     height: 65px;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: flex-start;
-//     align-items: center;
-
-//     .line{
-//         width: 100%;
-//     }
-// }
