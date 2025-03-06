@@ -1,6 +1,6 @@
 <section class="d-flex justify-content-center align-items-center" style="height: 90vh;">
     <form>
-        <h5 style="text-align: center; border-bottom: 1px solid; padding: 10px;">Sign up</h5>
+        <h5 style="text-align: center; border-bottom: 1px solid; padding: 10px;">Sign Up</h5>
 
         <div class="inp-group">
             <input type="text" placeholder="Username" />
@@ -27,7 +27,7 @@
         </div>
 
         <button class="sinup-btn" type="submit">
-            Signup
+            Sign Up
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                 <path
                     d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
@@ -50,13 +50,13 @@
             </button>
             <button class="sinup-btn-other" type="submit">
                 Facebook
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path
                         d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" />
                 </svg>
             </button>
         </div>
-
+        <div style="text-align: end;">Already a Member? <a style="color: white;" [routerLink]="['/signin']"
+                routerLinkActive="router-link-active">click here</a></div>
     </form>
 </section>
