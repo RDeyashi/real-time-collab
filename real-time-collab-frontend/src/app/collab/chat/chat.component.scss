@@ -88,6 +88,8 @@
 
 .user-chat-sec {
     width: 80%;
+    position: relative;
+    overflow-y: auto;
 
     .user-sec {
         background: rgb(221, 221, 221);
@@ -110,14 +112,14 @@
         top: 65px;
     }
 
-    .hr-line{
+    .hr-line {
         position: absolute;
         height: 65px;
         width: 1px;
         background: rgb(187, 187, 187);
     }
 
-    .user-details{
+    .user-details {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -135,6 +137,82 @@
             justify-content: center;
             align-items: center;
         }
+    }
+
+    .chat-section {
+        position: absolute;
+        top: 67px;
+        width: -webkit-fill-available;
+    }
+
+    .chat-box {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    .input-box {
+        position: fixed;
+        bottom: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        height: 80px;
+        padding: 54px;
+        width: -webkit-fill-available;
+    }
+
+    input {
+        outline: none;
+        border: 1px solid rgba(128, 128, 128, 0.356);
+        border-radius: 6px;
+        width: 720px;
+        height: 39px;
+        padding: 12px;
+
+        &::placeholder {
+            font-size: 14px;
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid rgba(128, 128, 128, 0.356);
+            border-bottom: 2px solid blue;
+        }
+    }
+
+    button {
+        border: none;
+        background: transparent;
+
+        svg {
+            width: 15px;
+        }
+
+        &:hover {
+            svg {
+                fill: blue;
+            }
+        }
+    }
+
+    .self-msg {
+        background: rgb(193, 222, 250);
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        max-width: 80%;
+        word-wrap: break-word;
+    }
+
+    .other-msg {
+        background: rgb(199, 193, 250);
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 5px;
+        max-width: 80%;
+        word-wrap: break-word;
     }
 }
 
