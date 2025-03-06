@@ -88,15 +88,12 @@
 
 .user-chat-sec {
     width: 80%;
-    // /background: rgb(179, 179, 179);
 
     .user-sec {
-        position: relative;
         background: rgb(221, 221, 221);
         margin-bottom: 40px;
         position: fixed;
         z-index: 10000;
-        //background: rgb(221, 221, 221);
         width: 80%;
         height: 65px;
         display: flex;
@@ -118,6 +115,26 @@
         height: 65px;
         width: 1px;
         background: rgb(187, 187, 187);
+    }
+
+    .user-details{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: 25px;
+
+        .profile-photo {
+            background: rgb(255, 230, 230);
+            padding: 10px;
+            border-radius: 680px;
+            margin: 10px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
 

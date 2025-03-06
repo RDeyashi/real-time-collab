@@ -18,8 +18,8 @@ export class ChatComponent {
       logo: ''
     },
     {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
+      name: "Deyashi Rabi",
+      lastMsg: "I'll be OOO now",
       logo: ''
     },
     {
