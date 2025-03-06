@@ -1,11 +1,14 @@
-section{
+section {
   color: white;
 }
 
-form{
+.form-field {
   background: rgb(78, 141, 212);
   padding: 30px;
   border-radius: 12px;
+}
+
+form {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -24,7 +27,8 @@ input {
   padding: 5px 5px 5px 25px;
   background: transparent;
   color: white;
-  &::placeholder{
+
+  &::placeholder {
     color: rgba(255, 255, 255, 0.726);
   }
 }
@@ -48,7 +52,7 @@ input:focus {
   fill: white;
 }
 
-.sinup-btn{
+.sinup-btn {
   padding: 10px;
   margin: 20px 0px 10px 0px;
   width: 300px;
@@ -57,7 +61,7 @@ input:focus {
   border: none;
 }
 
-.sinup-btn-other{
+.sinup-btn-other {
   padding: 10px;
   margin: 20px 0px 10px 0px;
   width: 142px;
@@ -66,7 +70,7 @@ input:focus {
   border: none;
 }
 
-svg{
+svg {
   fill: rgb(78, 141, 212);
   width: 18px;
 }
@@ -74,13 +78,13 @@ svg{
 
 .signup-line {
   display: flex;
-  flex-direction: row!important;
+  flex-direction: row !important;
   justify-content: center;
   align-items: center;
   gap: 2px
 }
 
-.line{
+.line {
   background: white;
   width: 97px;
   height: 1px;
