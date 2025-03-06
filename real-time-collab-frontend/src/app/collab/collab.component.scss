@@ -11,11 +11,13 @@ button {
     background: transparent;
 }
 
-button:hover, .act_tab {
+button:hover,
+.act_tab {
     background: white;
-    color: rgb(78, 140, 212)!important;
+    color: rgb(78, 140, 212) !important;
+
     svg {
-        fill: rgb(78, 140, 212)!important;
+        fill: rgb(78, 140, 212) !important;
     }
 }
 
@@ -25,9 +27,12 @@ button:hover, .act_tab {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 12!important;
+    gap: 2px;
+    font-size: 11px;
+    height: 66px;
+    padding: 8px;
     svg {
         fill: white;
-        width: 25px;
+        width: 20px;
     }
 }
