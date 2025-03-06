@@ -1,0 +1,87 @@
+section{
+  color: white;
+}
+
+form{
+  background: rgb(78, 141, 212);
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.signup {
+  text-align: center;
+  border-bottom: 2px solid;
+  padding: 10px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid;
+  width: 300px;
+  padding: 5px 5px 5px 25px;
+  background: transparent;
+  color: white;
+  &::placeholder{
+    color: rgba(255, 255, 255, 0.726);
+  }
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid;
+}
+
+.inp-group {
+  position: relative;
+  //padding: 10px;
+}
+
+.inp-group .image {
+  position: absolute;
+  left: 7px;
+  bottom: 12px;
+  width: 14px;
+  fill: white;
+}
+
+.sinup-btn{
+  padding: 10px;
+  margin: 20px 0px 10px 0px;
+  width: 300px;
+  background: white;
+  color: rgb(78, 141, 212);
+  border: none;
+}
+
+.sinup-btn-other{
+  padding: 10px;
+  margin: 20px 0px 10px 0px;
+  width: 142px;
+  background: white;
+  color: rgb(78, 141, 212);
+  border: none;
+}
+
+svg{
+  fill: rgb(78, 141, 212);
+  width: 18px;
+}
+
+
+.signup-line {
+  display: flex;
+  flex-direction: row!important;
+  justify-content: center;
+  align-items: center;
+  gap: 2px
+}
+
+.line{
+  background: white;
+  width: 97px;
+  height: 1px;
+}
