@@ -9,6 +9,7 @@ export class UserRepo implements iUserRepo {
     async checkUserExists(email: string): Promise<any> {
         try {
             const existingUser = await Users.findOne({ email })
+            console.log('checkUserExistsRepo', existingUser)
             if (!existingUser) {
                 return false;
             }
@@ -20,6 +21,12 @@ export class UserRepo implements iUserRepo {
     }
 
     async addUser(payload: types.addUser) {
-        console.log('USER REPO', payload, dbConnection)
+        const userName = payload.username;
+        const email = payload.email;
+        const password = payload.password;
+
+        const newUser = new Users({ userName, email, password });
+        const addUser = await newUser.save();
+        console.log('addUserRepo', addUser)
     }
 }

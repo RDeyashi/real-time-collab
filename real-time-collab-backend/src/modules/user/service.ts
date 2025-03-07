@@ -22,9 +22,8 @@ export class UserService implements iUserService {
             const isExistingUser = await this.userRepo.checkUserExists(payload.email);
             console.log('addUserService', isExistingUser)
             if (!isExistingUser) {
-                response = setResponse(response, eStatusCode.BAD_REQUEST, true, Messages.AlreadyExistUser)
+                const dbResult = await this.userRepo.addUser(payload);
             }
-            //const dbResult = await this.userRepo.addUser(payload);
 
             //console.log('Add user service working', isExistingUser, dbResult)
         } catch (error) {
