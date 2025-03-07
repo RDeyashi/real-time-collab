@@ -3,6 +3,9 @@ import { iUserService } from "./iUserService";
 import { UserService } from "./service";
 import * as types from './types';
 import { UserRepo } from "./repo";
+import { responseHandler } from "../../handler/responsehandler";
+import { eStatusCode } from "../../enum/status-code.enum";
+import { eErrorMessage } from "../../enum/error-message.enum";
 
 class UserController {
     private readonly userService: iUserService;
@@ -21,11 +24,24 @@ class UserController {
                 email: req.body.email,
                 password: req.body.password
             }
-            const resData = this.userService.addUser(payload)
-            console.log('Add User Controller')
+            const response = await this.userService.addUser(payload)
+
+            responseHandler(
+                res,
+                response.statusCode,
+                response.isError,
+                response.message,
+                response?.data
+            )
         } catch (error) {
             console.error(error);
-            throw error;
+            responseHandler(
+                res,
+                eStatusCode.INTERNAL_SERVER_ERROR,
+                true,
+                eErrorMessage.ServerError,
+                error
+            );
         }
     }
 }
