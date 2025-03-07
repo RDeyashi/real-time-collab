@@ -12,6 +12,7 @@ class UserController {
     constructor(userService: iUserService) {
         this.userService = userService;
         this.addUser = this.addUser.bind(this);
+        this.getUsers = this.getUsers.bind(this);
     }
 
     async addUser(
@@ -26,6 +27,31 @@ class UserController {
             }
             const response = await this.userService.addUser(payload)
 
+            responseHandler(
+                res,
+                response.statusCode,
+                response.isError,
+                response.message,
+                response?.data
+            )
+        } catch (error) {
+            console.error(error);
+            responseHandler(
+                res,
+                eStatusCode.INTERNAL_SERVER_ERROR,
+                true,
+                eErrorMessage.ServerError,
+                error
+            );
+        }
+    }
+
+    async getUsers(
+        req: express.Request,
+        res: express.Response
+    ): Promise<void> {
+        try {
+            const response = await this.userService.getUsers()
             responseHandler(
                 res,
                 response.statusCode,

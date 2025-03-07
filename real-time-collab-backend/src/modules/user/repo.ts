@@ -6,10 +6,12 @@ import { Messages } from "./messages";
 
 const dbConnection = connectDB()
 export class UserRepo implements iUserRepo {
-    async checkUserExists(email: string): Promise<any> {
+    async checkUserExists(email: string, userName:string): Promise<any> {
         try {
-            const existingUser = await Users.findOne({ email })
-            console.log('checkUserExistsRepo', existingUser)
+            const existingUser = await Users.findOne({
+                $or: [{email: email}, {userName: userName}]
+            })
+
             if (!existingUser) {
                 return false;
             }
@@ -21,12 +23,35 @@ export class UserRepo implements iUserRepo {
     }
 
     async addUser(payload: types.addUser) {
-        const userName = payload.username;
-        const email = payload.email;
-        const password = payload.password;
+        try {
+            const userName = payload.username;
+            const email = payload.email;
+            const password = payload.password;
 
-        const newUser = new Users({ userName, email, password });
-        const addUser = await newUser.save();
-        console.log('addUserRepo', addUser)
+            const newUser = new Users({ userName, email, password });
+            const addUser = await newUser.save();
+
+            if (!addUser) {
+                return false
+            }
+            return addUser
+        } catch (error) {
+            console.error('addUserRepoError', error)
+            throw error;
+        }
+    }
+
+    async getUsers() {
+        try {
+            const allUser = await Users.find()
+            console.log('getUsersRepo', allUser)
+            if (!allUser.length) {
+                return false
+            }
+            return allUser;
+        } catch (error) {
+            console.error('getUsersRepoError', error)
+            throw error;
+        }
     }
 }

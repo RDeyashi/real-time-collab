@@ -12,6 +12,7 @@ export class UserRoutes extends CommonRouteConfig {
             .post([
                 UserController.addUser
             ])
+            .get([UserController.getUsers])
 
         return this.app;
     }
