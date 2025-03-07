@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
 import { EncryptDecryptService } from '../service/encrypt-decrypt.service';
+import { ApiCallService } from '../service/api-call.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,22 +11,36 @@ import { EncryptDecryptService } from '../service/encrypt-decrypt.service';
     CommonModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.scss'
+  styleUrl: './signup.component.scss',
+  providers: [ApiCallService]
 })
 export class SignupComponent {
-  constructor(private encDecService: EncryptDecryptService){}
+  constructor(
+    private encDecService: EncryptDecryptService,
+    private apiCallService: ApiCallService,
+  ) { }
   signup: FormGroup = new FormGroup({
     userName: new FormControl(""),
     userEmail: new FormControl("", [Validators.email]),
     password: new FormControl("", [Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)])
   })
 
-  async onClickSignUp(){
+  async onClickSignUp() {
     const encPaswd = await this.encDecService.encryptPassword(this.signup.value.password)
     this.signup.get("password")?.setValue(encPaswd)
-    console.log(this.signup.value)
+
+    this.apiCallService.signUp(this.signup.value).subscribe({
+      next: (response: any) => {
+        if (!response.error) {
+          console.log(response)
+        }
+      },
+      error: (error:any) => {
+        console.error(error.error.message)
+      }
+    })
   }
 }

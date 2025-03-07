@@ -21,8 +21,8 @@ class UserController {
     ): Promise<void> {
         try {
             const payload: types.addUser = {
-                username: req.body.username,
-                email: req.body.email,
+                username: req.body.userName,
+                email: req.body.userEmail,
                 password: req.body.password
             }
             const response = await this.userService.addUser(payload)

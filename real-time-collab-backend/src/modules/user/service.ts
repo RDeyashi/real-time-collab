@@ -14,15 +14,16 @@ export class UserService implements iUserService {
     }
     async addUser(payload: types.addUser): Promise<serviceResponse> {
         let response: serviceResponse = {
-            statusCode: eStatusCode.CREATED,
+            statusCode: eStatusCode.BAD_REQUEST,
             isError: false,
-            message: Messages.MemberAdded,
+            message: eErrorMessage.ServerError,
         };
         try {
             const isExistingUser = await this.userRepo.checkUserExists(payload.email, payload.username);
 
             if (!isExistingUser) {
                 const dbResult = await this.userRepo.addUser(payload);
+                response = setResponse(response, eStatusCode.CREATED, false, Messages.MemberAdded)
             } else {
                 response = setResponse(response, eStatusCode.CLIENT_INPUT_ERROR, true, Messages.AlreadyExistUser)
             }
