@@ -6,11 +6,9 @@ import { Messages } from "./messages";
 
 const dbConnection = connectDB()
 export class UserRepo implements iUserRepo {
-    async checkUserExists(email: string, userName:string): Promise<any> {
+    async checkUserExists(email: string): Promise<any> {
         try {
-            const existingUser = await Users.findOne({
-                $or: [{email: email}, {userName: userName}]
-            })
+            const existingUser = await Users.findOne({ email })
 
             if (!existingUser) {
                 return false;
@@ -24,11 +22,11 @@ export class UserRepo implements iUserRepo {
 
     async addUser(payload: types.addUser) {
         try {
-            const userName = payload.username;
+            const name = payload.name;
             const email = payload.email;
             const password = payload.password;
 
-            const newUser = new Users({ userName, email, password });
+            const newUser = new Users({ name: name, email: email, password: password });
             const addUser = await newUser.save();
 
             if (!addUser) {

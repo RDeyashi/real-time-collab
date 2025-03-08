@@ -3,6 +3,13 @@ type signin = {
     password: string
 }
 
+type User = {
+    name: string,
+    email: string,
+    password: string
+}
+
 export {
-    signin
+    signin,
+    User
 }

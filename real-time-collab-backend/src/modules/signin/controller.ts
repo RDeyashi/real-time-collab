@@ -4,6 +4,8 @@ import * as types from './types'
 import { responseHandler } from '../../handler/responsehandler';
 import { eStatusCode } from '../../enum/status-code.enum';
 import { eErrorMessage } from '../../enum/error-message.enum';
+import { SigninRepo } from './repo';
+import { SigninService } from './service';
 
 class SigninController {
     private readonly signinService: iSigninService
@@ -32,7 +34,7 @@ class SigninController {
                 response?.data
             )
         } catch (error) {
-            console.error(error);
+            console.error('signinController', error);
             responseHandler(
                 res,
                 eStatusCode.INTERNAL_SERVER_ERROR,
@@ -43,3 +45,7 @@ class SigninController {
         }
     }
 }
+
+const signinRepoInstance = new SigninRepo();
+const signinServiceInstance = new SigninService(signinRepoInstance);
+export default new SigninController(signinServiceInstance);

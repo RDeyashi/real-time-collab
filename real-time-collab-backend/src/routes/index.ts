@@ -1,6 +1,7 @@
 import express from "express"
 import { CommonRouteConfig } from "./common.routes.config";
 import { UserRoutes } from "./user.routes";
+import { SigninRoutes } from "./signin.routes";
 const apiVersion = "v1";
 const baseRoutePath = "api";
 
@@ -11,9 +12,10 @@ class RouterConfig {
         this.app = app;
     }
 
-    configureRoutes(): Array<CommonRouteConfig>{
+    configureRoutes(): Array<CommonRouteConfig> {
         const routes: Array<CommonRouteConfig> = [
-            new UserRoutes(this.app, baseRoutePath, apiVersion)
+            new UserRoutes(this.app, baseRoutePath, apiVersion),
+            new SigninRoutes(this.app, baseRoutePath, apiVersion)
         ]
         return routes;
     }

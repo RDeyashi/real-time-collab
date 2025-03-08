@@ -19,7 +19,7 @@ export class UserService implements iUserService {
             message: eErrorMessage.ServerError,
         };
         try {
-            const isExistingUser = await this.userRepo.checkUserExists(payload.email, payload.username);
+            const isExistingUser = await this.userRepo.checkUserExists(payload.email);
 
             if (!isExistingUser) {
                 const dbResult = await this.userRepo.addUser(payload);
