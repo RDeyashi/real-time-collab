@@ -18,7 +18,7 @@ import { EncryptDecryptService } from '../service/encrypt-decrypt.service';
 export class SigninComponent {
   constructor(private encDecService: EncryptDecryptService){}
   signin:FormGroup = new FormGroup({
-    userName: new FormControl(""),
+    email: new FormControl("", [Validators.email]),
     password: new FormControl("", [Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)])
   })
 
