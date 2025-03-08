@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'
 import { EncryptDecryptService } from '../service/encrypt-decrypt.service';
 import { ApiCallService } from '../service/api-call.service';
@@ -21,6 +21,7 @@ export class SignupComponent {
   constructor(
     private encDecService: EncryptDecryptService,
     private apiCallService: ApiCallService,
+    private route: Router
   ) { }
   signup: FormGroup = new FormGroup({
     userName: new FormControl(""),
@@ -36,6 +37,7 @@ export class SignupComponent {
       next: (response: any) => {
         if (!response.error) {
           console.log(response)
+          this.route.navigate(['/signin'])
         }
       },
       error: (error:any) => {

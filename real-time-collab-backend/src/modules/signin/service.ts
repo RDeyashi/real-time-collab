@@ -38,8 +38,6 @@ export class SigninService implements iSigninService {
                     expiresIn: '1h'
                 })
 
-                console.log(token)
-
                 response = setResponse(response, eStatusCode.OK, false, Messages.Signin, token)
             }
 

@@ -3,6 +3,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { ChatComponent } from './collab/chat/chat.component';
 import { CollabComponent } from './collab/collab.component';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'signup', pathMatch: 'full' },
@@ -14,6 +15,7 @@ export const routes: Routes = [
         children: [
             { path: '', redirectTo: 'chat', pathMatch: 'full' },
             { path: 'chat', component: ChatComponent }
-        ]
+        ],
+        canActivate: [authGuard]
     }
 ];

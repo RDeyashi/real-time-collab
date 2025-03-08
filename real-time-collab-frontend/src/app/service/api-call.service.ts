@@ -17,4 +17,11 @@ export class ApiCallService {
     })
     return this.http.post(`${this.apiBaseUrl}/users`, payload, { headers })
   }
+
+  signin(payload: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+    return this.http.post(`${this.apiBaseUrl}/signin`, payload, { headers })
+  }
 }
