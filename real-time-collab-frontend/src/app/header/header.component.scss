@@ -2,10 +2,21 @@ header{
     background: rgb(78, 141, 212);
     color: white;
     height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .app-name{
     font-size: 20px;
     font-weight: 500;
     margin-left: 20px;
+}
+
+.logout-icon{
+    cursor: pointer;
+    fill: white;
+    width: 15px;
+    margin-right: 20px;
 }
