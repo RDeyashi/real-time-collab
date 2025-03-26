@@ -9,7 +9,12 @@
             @for (item of USER; track $index) {
             <div class="user" (click)="onClickUser($index)" [ngClass]="{user_active: $index === selectedUser}">
                 <div class="profile-photo">
-                    <img src="../../../assets/user-regular.svg" width="20px">
+                    @if (item.logo) {
+                        <img src="{{item.logo}}" width="20px">
+                    } @else {
+                        <b>{{item.name.split(" ")[0][0]}}{{item.name.split(" ")[item.name.split(" ").length -1][0]}}</b>
+                    }
+                    
                 </div>
                 <div class="user-sction">
                     <div class="user-name">{{item.name}}</div>
@@ -25,7 +30,12 @@
             <div class="user-details">
 
                 <div class="profile-photo">
-                    <img src="../../../assets/user-regular.svg" width="20px">
+
+                    @if (USER[selectedUser].logo) {
+                        <img src="{{USER[selectedUser].logo}}" width="20px">
+                    } @else {
+                        <b>{{USER[selectedUser].name.split(" ")[0][0]}}{{USER[selectedUser].name.split(" ")[USER[selectedUser].name.split(" ").length -1][0]}}</b>
+                    }
                 </div>
                 <div style="font-weight: 500;">{{USER[selectedUser].name}}</div>
             </div>

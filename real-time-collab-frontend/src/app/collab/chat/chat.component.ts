@@ -28,61 +28,13 @@ export class ChatComponent {
     {
       name: "Rabi Deyashi",
       lastMsg: "I'll be OOO",
-      logo: ''
+      logo: 'assets/user-regular.svg'
     },
     {
       name: "Deyashi Rabi",
       lastMsg: "I'll be OOO now",
       logo: ''
     },
-    {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    },
-    {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    },
-    {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    },
-    {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    }, {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    },
-    {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    },
-    {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    }, {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    },
-    {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    },
-    {
-      name: "Rabi Deyashi",
-      lastMsg: "I'll be OOO",
-      logo: ''
-    }
   ]
 
   onClickUser(index: number) {
