@@ -39,6 +39,7 @@ export class SigninComponent {
           console.log(response)
           localStorage.setItem('access-token', response.data);
           this.route.navigate(['collab'])
+          this.apiService.setLoggedInValue(true)
         }
       },
       error: (error: any) => {

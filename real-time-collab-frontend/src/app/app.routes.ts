@@ -6,7 +6,7 @@ import { CollabComponent } from './collab/collab.component';
 import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'signup', pathMatch: 'full' },
+    { path: '', redirectTo: 'signin', pathMatch: 'full' },
     { path: 'signup', component: SignupComponent },
     { path: 'signin', component: SigninComponent },
     {
