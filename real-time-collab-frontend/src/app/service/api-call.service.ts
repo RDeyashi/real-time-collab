@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,19 @@ export class ApiCallService {
   public isLoggedIn = new BehaviorSubject<boolean>(false);
   currentLoggedInValue = this.isLoggedIn.asObservable();
 
-  setLoggedInValue(value:boolean){
-    console.log(value, typeof(value))
+  setLoggedInValue(value: boolean) {
+    console.log(value, typeof (value))
     this.isLoggedIn.next(value);
+  }
+
+  decodeToken(token: string) {
+    try {
+      const decodedToken = jwtDecode(token)
+      return decodedToken;
+    } catch (error) {
+      console.error('Error decoding token', error);
+      return null;
+    }
   }
 
   signUp(payload: any): Observable<any> {

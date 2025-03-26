@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApiCallService } from '../../service/api-call.service';
 
 @Component({
   selector: 'app-chat',
@@ -36,6 +37,16 @@ export class ChatComponent {
       logo: ''
     },
   ]
+
+  constructor(
+    private _apiCallS: ApiCallService
+  ){}
+
+  ngOnInit(): void {
+    const accessToken = localStorage.getItem('access-token');
+    const jwtResponse = this._apiCallS.decodeToken(accessToken!)
+    console.log(jwtResponse)
+  }
 
   onClickUser(index: number) {
     this.selectedUser = index;

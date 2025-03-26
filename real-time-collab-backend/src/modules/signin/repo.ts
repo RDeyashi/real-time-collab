@@ -21,15 +21,12 @@ export class SigninRepo implements iSigninRepo {
             const payloadPswd = password.toString(CryptoJS.enc.Utf8)
             const user = await Users.findOne({ email })
 
-            console.log('PayloadPassword', payload.password, payloadPswd);
-
             if (!user) {
                 throw Messages.InvalidEmailPassword
             }
 
             let userPswd = CryptoJS.AES.decrypt(user.password, SECRET_KEY);
             const userPassword = userPswd.toString(CryptoJS.enc.Utf8)
-            console.log('UserPassword', user.password, userPassword);
 
             const isMatch = payloadPswd == userPassword ? true : false;
 

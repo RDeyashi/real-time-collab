@@ -33,8 +33,14 @@ export class SigninService implements iSigninService {
         try {
             const signInResponse: types.User = await this.signinRepo.signin(payload);
 
+            const returnPayload = {
+                name: signInResponse.name,
+                email: signInResponse.email
+            }
+            console.log(signInResponse)
+
             if (signInResponse) {
-                const token = jwt.sign({ users: signInResponse }, SECRET_KEY,{
+                const token = jwt.sign({ users: returnPayload }, SECRET_KEY,{
                     expiresIn: '1h'
                 })
 

@@ -20,6 +20,7 @@ export class HeaderComponent {
       console.log(value)
       this.isLoggedIn = value
     })
+    this.isLoggedIn = localStorage.getItem('access-token') ? true : false
   }
   clickLogOut(){
     localStorage.clear();
